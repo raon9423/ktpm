@@ -1,0 +1,250 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-sub-header">
+                        <h3 class="page-title">Thông tin học sinh</h3>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="students.html">Student</a></li>
+                            <li class="breadcrumb-item active">Student Details</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="about-info">
+                            <h4>Hồ sơ <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h4>
+                        </div>
+                        <div class="student-profile-head">
+                            <div class="profile-bg-img">
+                                <img src="assets/img/profile-bg.jpg" alt="Profile">
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="profile-user-box">
+                                        <div class="profile-user-img">
+                                              <img  [src]="'http://localhost:3105' + student.image" alt="Profile">
+                                            <div class="form-group students-up-files profile-edit-icon mb-0">
+                                                <div class="uplod d-flex">
+                                                    <label class="file-upload profile-upbtn mb-0">
+                                                        <i class="feather-edit-3"></i><input type="file">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="names-profiles">
+                                            <h4>{{student.full_name}}</h4>
+                                            <h5>{{ student.classes.length > 0 ? student.classes[0].name : 'Chưa có lớp' }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 d-flex align-items-center">
+                                    <div class="follow-group">
+                                        <div class="students-follows">
+                                            <h5>Số vaccine đã tiêm</h5>
+                                            <h4>{{vaccineCount}}</h4>
+                                        </div>
+                                        <div class="students-follows">
+                                            <h5>Hoạt động đã tham gia</h5>
+                                            <h4>{{activityCount}}</h4>
+                                        </div>
+                                        <div class="students-follows">
+                                            <h5>Số buổi vắng</h5>
+                                            <h4>{{ absentCount }}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 d-flex align-items-center">
+                                    <div class="follow-btn-group">
+                                        <button type="submit" class="btn btn-info follow-btns">Liên hệ
+                                            NGH</button>
+                                        <!-- <button type="submit" class="btn btn-info message-btns"></button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="student-personals-grp">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="heading-detail">
+                                        <h4>Thông tin chi tiết</h4>
+                                    </div>
+                                    <div class="personal-activity">
+                                        <div class="personal-icons">
+                                            <i class="feather-user"></i>
+                                        </div>
+                                        <div class="views-personal">
+                                            <h4>Tên</h4>
+                                            <h5>{{student.full_name}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="personal-activity">
+                                        <div class="personal-icons">
+                                            <img src="assets/img/icons/buliding-icon.svg" alt="">
+                                        </div>
+                                        <div class="views-personal">
+                                            <h4>Lớp </h4>
+                                            <h5>{{ student.classes.length > 0 ? student.classes[0].name : 'Chưa có lớp' }}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="personal-activity">
+                                        <div class="personal-icons">
+                                            <i class="feather-phone-call"></i>
+                                        </div>
+                                        <div class="views-personal">
+                                            <h4>SDT người giám hộ</h4>
+                                            <h5>{{ student.parent?.phone_number || 'Không có SDT' }}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="personal-activity">
+                                        <div class="personal-icons">
+                                            <i class="feather-mail"></i>
+                                        </div>
+                                        <div class="views-personal">
+                                            <h4>Email người giám hộ</h4>
+                                            <h5><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                    data-cfemail="81e5e0e8f2f8c1e6ece0e8edafe2eeec">{{ student.parent?.email || 'Không có phụ huynh' }}</a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="personal-activity">
+                                        <div class="personal-icons">
+                                            <i class="feather-user"></i>
+                                        </div>
+                                        <div class="views-personal">
+                                            <h4>Giới tính</h4>
+                                            <h5>{{ student.gender === 'male' ? 'Nam' : student.gender === 'female' ? 'Nữ' : 'Không xác định' }}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="personal-activity">
+                                        <div class="personal-icons">
+                                            <i class="feather-calendar"></i>
+                                        </div>
+                                        <div class="views-personal">
+                                            <h4>Ngày sinh</h4>
+                                            <h5>{{student.date_of_birth}}</h5>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="personal-activity">
+                                        <div class="personal-icons">
+                                            <i class="feather-italic"></i>
+                                        </div>
+                                        <div class="views-personal">
+                                            <h4>Language</h4>
+                                            <h5>English, French, Bangla</h5>
+                                        </div>
+                                    </div> -->
+                                    <div class="personal-activity mb-0">
+                                        <div class="personal-icons">
+                                            <i class="feather-map-pin"></i>
+                                        </div>
+                                        <div class="views-personal">
+                                            <h4>Địa chỉ</h4>
+                                            <h5>{{ student.parent?.address || 'Khong co dia chi' }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-personals-grp">
+                            <div class="card mb-0">
+                                <div class="card-body">
+                                    <div class="heading-detail">
+                                        <h4>Tình trạng:</h4>
+                                    </div>
+                                    <div class="skill-blk">
+                                        <div class="skill-statistics">
+                                            <div class="skills-head">
+                                                <h5>Điểm danh</h5>
+                                                <p>90%</p>
+                                            </div>
+                                            <div class="progress mb-0">
+                                                <div class="progress-bar bg-photoshop" role="progressbar"
+                                                    style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-statistics">
+                                            <div class="skills-head">
+                                                <h5>Tiêm phòng</h5>
+                                                <p>75%</p>
+                                            </div>
+                                            <div class="progress mb-0">
+                                                <div class="progress-bar bg-editor" role="progressbar"
+                                                    style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="skill-statistics mb-0">
+                                            <div class="skills-head">
+                                                <h5>Hoạt động</h5>
+                                                <p>95%</p>
+                                            </div>
+                                            <div class="progress mb-0">
+                                                <div class="progress-bar bg-illustrator" role="progressbar"
+                                                    style="width: 95%" aria-valuenow="95" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="student-personals-grp">
+                            <div class="card mb-0">
+                                <div class="card-body">
+                                    <div class="heading-detail">
+                                        <h4>Thông tin của học sinh</h4>
+                                    </div>
+                                    <div class="hello-park">
+                                        <h5>Giới thiệu</h5>
+                                        <p>
+                                            Thông tin học sinh là một phần quan trọng giúp giáo viên, phụ huynh và nhà trường nắm bắt được tình hình học tập, sức khỏe và sở thích của trẻ. Thông tin này thường bao gồm họ tên, ngày sinh, giới tính, sở thích, năng khiếu, tình trạng sức khỏe, tính cách, và thái độ học tập của trẻ. Ngoài ra, thông tin về gia đình như tên phụ huynh, địa chỉ liên hệ cũng rất quan trọng để nhà trường có thể hỗ trợ trẻ tốt nhất. 
+                                            <br>
+                                            Việc ghi chép đầy đủ thông tin giúp giáo viên hiểu rõ hơn về từng học sinh, từ đó có phương pháp giảng dạy phù hợp, giúp trẻ phát triển toàn diện cả về trí tuệ và cảm xúc     
+                                        </p>
+                                    </div>
+                                    <div class="hello-park">
+                                        <h5>Thông tin tiêm phòng</h5>
+                                     <div >
+                                        <div class="educate-year" *ngFor="let vacc of vaccineList">
+                                            <h6> {{vacc.vaccination_date}}</h6>
+                                            <p>
+                                                <span class="educate-year">Tên Vaccine: {{vacc.vaccine.name}}</span>
+                                                
+                                            </p>
+                                            <p>
+                                            {{vacc.vaccine.description}}
+                                            </p>
+                                        </div>
+                                     </div>
+                                      
+                                    </div>
+                                    <div class="hello-park mt-3">
+                                        <h5>Đánh giá của giáo viên</h5>
+                                        <p>
+                                            Con thật giỏi và chăm ngoan! Cô rất vui khi thấy con luôn cố gắng học tập, nghe lời cô giáo và chơi hòa đồng với các bạn. Hôm nay, con đã hoàn thành bài tập rất tốt, tô màu đẹp và biết xếp đồ chơi gọn gàng. Cô rất tự hào về con! Mỗi ngày, con đều tiến bộ hơn, biết lễ phép và giúp đỡ bạn bè. Hãy tiếp tục phát huy nhé! Cô tin rằng con sẽ ngày càng giỏi hơn. Cả lớp ai cũng yêu quý con vì con rất ngoan và đáng yêu. Cố gắng lên con nhé, cô luôn ở bên động viên con</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+
+</div>

@@ -1,0 +1,164 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col-sm-12">
+                    <div class="page-sub-header">
+                        <h3 class="page-title">Add Students</h3>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="students.html">Student</a></li>
+                            <li class="breadcrumb-item active">Add Students</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card comman-shadow">
+                    <div class="card-body">
+                        
+                      <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                          <div class="col-12">
+                            <h5 class="form-title student-info">
+                              Student Information
+                              <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span>
+                            </h5>
+                          </div>
+                      
+                          <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                              <label>Full Name <span class="login-danger">*</span></label>
+                              <input
+                                class="form-control"
+                                type="text"
+                                placeholder="Enter First Name"
+                                formControlName="full_name"
+                              >
+                              <div
+                                *ngIf="studentForm.get('full_name')?.touched && studentForm.get('full_name')?.errors?.['required']"
+                                class="text-danger"
+                              >
+                                Full Name is required
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                              <label>Date Of Birth <span class="login-danger">*</span></label>
+                              <input
+                                type="date"
+                                class="form-control"
+                                formControlName="date_of_birth"
+                              >
+                              <div
+                                *ngIf="studentForm.get('date_of_birth')?.touched && studentForm.get('date_of_birth')?.errors?.['required']"
+                                class="text-danger"
+                              >
+                                Date of Birth is required
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                              <label>Gender <span class="login-danger">*</span></label>
+                              <select
+                                class="form-control"
+                                formControlName="gender"
+                              >
+                                <option value="">Select Gender</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                              </select>
+                              <div
+                                *ngIf="studentForm.get('gender')?.touched && studentForm.get('gender')?.errors?.['required']"
+                                class="text-danger"
+                              >
+                                Gender is required
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                              <label>Class <span class="login-danger">*</span></label>
+                              <select
+                                class="form-control"
+                                formControlName="class_id"
+                              >
+                                <option value="">Select Class</option>
+                                <option *ngFor="let classItem of classes" [value]="classItem.id">
+                                  {{ classItem.name }}
+                                </option>
+                              </select>
+                              <div
+                                *ngIf="studentForm.get('class_id')?.touched && studentForm.get('class_id')?.errors?.['required']"
+                                class="text-danger"
+                              >
+                                Class is required
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                              <label>Parent <span class="login-danger">*</span></label>
+                              <select
+                                class="form-control"
+                                formControlName="parent_id"
+                              >
+                                <option value="">Select Parent</option>
+                                <option *ngFor="let item of parents" [value]="item.id">
+                                  {{ item.full_name }}
+                                </option>
+                              </select>
+                              <div
+                                *ngIf="studentForm.get('parent_id')?.touched && studentForm.get('parent_id')?.errors?.['required']"
+                                class="text-danger"
+                              >
+                                Parent is required
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="col-12 col-sm-4">
+                            <div class="form-group students-up-files">
+                              <label>Upload Student Photo (150px X 150px)</label>
+                              <div class="uplod">
+                                <label class="file-upload image-upbtn mb-0">
+                                  Choose File
+                                  <input
+                                    type="file"
+                                    (change)="onFileSelected($event)"
+                                    accept="image/jpeg,image/png,image/gif"
+                                  >
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="col-12">
+                            <div class="student-submit">
+                              <button
+                                type="submit"
+                                class="btn btn-primary"
+                                [disabled]="studentForm.invalid"
+                              >
+                                Submit
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

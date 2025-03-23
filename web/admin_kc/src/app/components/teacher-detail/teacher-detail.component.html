@@ -1,0 +1,298 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="page-sub-header">
+              <h3 class="page-title">Chi tiết giáo viên</h3>
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="teachers.html">Teachers</a>
+                </li>
+                <li class="breadcrumb-item active">Teachers Details</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="about-info">
+                <h4>
+                  Hồ sơ
+                  <span
+                    ><a href="javascript:;"
+                      ><i class="feather-more-vertical"></i></a
+                  ></span>
+                </h4>
+              </div>
+              <div class="student-profile-head">
+                <div class="profile-bg-img">
+                  <img src="assets/img/profile-bg.jpg" alt="Profile" />
+                </div>
+                <div class="row">
+                  <div class="col-lg-4 col-md-4">
+                    <div class="profile-user-box">
+                      <div class="profile-user-img">
+                        <img
+                          src="assets/img/profiles/avatar-18.jpg"
+                          alt="Profile"
+                        />
+                        <div
+                          class="form-group students-up-files profile-edit-icon mb-0"
+                        >
+                          <div class="uplod d-flex">
+                            <label class="file-upload profile-upbtn mb-0">
+                              <i class="feather-edit-3"></i><input type="file" />
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="names-profiles">
+                        <h4>{{ teacher.full_name }}</h4>
+                        <h5>Giảng dạy mầm non</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 d-flex align-items-center">
+                    <div class="follow-group">
+                      <div class="students-follows">
+                        <h5>Followers</h5>
+                        <h4>2850</h4>
+                      </div>
+                      <div class="students-follows">
+                        <h5>Followers</h5>
+                        <h4>2850</h4>
+                      </div>
+                      <div class="students-follows">
+                        <h5>Followers</h5>
+                        <h4>2850</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 d-flex align-items-center">
+                    <div class="follow-btn-group">
+                      <button type="submit" class="btn btn-info follow-btns">
+                        Follow
+                      </button>
+                      <button type="submit" class="btn btn-info message-btns">
+                        Message
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="student-personals-grp">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="heading-detail">
+                      <h4>Thông tin cá nhân :</h4>
+                    </div>
+                    <div class="personal-activity">
+                      <div class="personal-icons">
+                        <i class="feather-user"></i>
+                      </div>
+                      <div class="views-personal">
+                        <h4>Tên</h4>
+                        <h5>{{ teacher.full_name }}</h5>
+                      </div>
+                    </div>
+                    <div class="personal-activity">
+                      <div class="personal-icons">
+                        <img src="assets/img/icons/buliding-icon.svg" alt="" />
+                      </div>
+                      <div class="views-personal">
+                        <h4>Bộ phận :</h4>
+                        <h5>Giáo dục mầm non</h5>
+                      </div>
+                    </div>
+                    <div class="personal-activity">
+                      <div class="personal-icons">
+                        <i class="feather-phone-call"></i>
+                      </div>
+                      <div class="views-personal">
+                        <h4>Số điện thoại</h4>
+                        <h5>{{ teacher.phone_number }}</h5>
+                      </div>
+                    </div>
+                    <div class="personal-activity">
+                      <div class="personal-icons">
+                        <i class="feather-mail"></i>
+                      </div>
+                      <div class="views-personal">
+                        <h4>Email</h4>
+                        <h5>
+                          <a
+                            href="/cdn-cgi/l/email-protection"
+                            class="__cf_email__"
+                            data-cfemail="d4bebbb194b3b9b5bdb8fab7bbb9"
+                            >{{ teacher.email }}</a
+                          >
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="personal-activity">
+                      <div class="personal-icons">
+                        <i class="feather-user"></i>
+                      </div>
+                      <div class="views-personal">
+                        <h4>Giới tính</h4>
+                        <h5>Nữ</h5>
+                      </div>
+                    </div>
+                    <div class="personal-activity">
+                      <div class="personal-icons">
+                        <i class="feather-calendar"></i>
+                      </div>
+                      <div class="views-personal">
+                        <h4>Ngày sinh</h4>
+                        <h5>10/01/2004</h5>
+                      </div>
+                    </div>
+                    <!-- <div class="personal-activity">
+                                          <div class="personal-icons">
+                                              <i class="feather-italic"></i>
+                                          </div>
+                                          <div class="views-personal">
+                                              <h4>Language</h4>
+                                              <h5>English, French, Bangla</h5>
+                                          </div>
+                                      </div> -->
+                    <div class="personal-activity mb-0">
+                      <div class="personal-icons">
+                        <i class="feather-map-pin"></i>
+                      </div>
+                      <div class="views-personal">
+                        <h4>Địa chỉ</h4>
+                        <h5>{{ teacher.address }}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="student-personals-grp">
+                <div class="card mb-0">
+                  <div class="card-body">
+                    <div class="heading-detail">
+                      <h4>Kỹ năng:</h4>
+                    </div>
+                    <div class="skill-blk">
+                      <div class="skill-statistics">
+                        <div class="skills-head">
+                          <h5>Hoạt động sáng tạo</h5>
+                          <p>90%</p>
+                        </div>
+                        <div class="progress mb-0">
+                          <div
+                            class="progress-bar bg-photoshop"
+                            role="progressbar"
+                            style="width: 90%"
+                            aria-valuenow="90"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="skill-statistics">
+                        <div class="skills-head">
+                          <h5>Kể chuyện</h5>
+                          <p>75%</p>
+                        </div>
+                        <div class="progress mb-0">
+                          <div
+                            class="progress-bar bg-editor"
+                            role="progressbar"
+                            style="width: 75%"
+                            aria-valuenow="75"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="skill-statistics mb-0">
+                        <div class="skills-head">
+                          <h5>Lập kế hoạch</h5>
+                          <p>95%</p>
+                        </div>
+                        <div class="progress mb-0">
+                          <div
+                            class="progress-bar bg-illustrator"
+                            role="progressbar"
+                            style="width: 95%"
+                            aria-valuenow="95"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="student-personals-grp">
+                <div class="card mb-0">
+                  <div class="card-body">
+                    <div class="heading-detail">
+                      <h4>About Me</h4>
+                    </div>
+                    <div class="hello-park">
+                      <h5>Hello, Tôi là Ngô Thị Hòa My</h5>
+                      <p>
+                        Tôi là một giáo viên mầm non với hơn 10 năm kinh nghiệm
+                        trong việc giảng dạy và chăm sóc trẻ nhỏ. Tôi luôn mong
+                        muốn tạo ra một môi trường học tập an toàn, sáng tạo và
+                        đầy yêu thương để các bé có thể phát triển toàn diện. Với
+                        sự kiên nhẫn và lòng đam mê, tôi không ngừng cập nhật các
+                        phương pháp giáo dục tiên tiến để mang đến trải nghiệm học
+                        tập tốt nhất cho trẻ.
+                      </p>
+                      <p>
+                        Giáo dục mầm non không chỉ là việc dạy trẻ những kiến thức
+                        cơ bản, mà còn là việc giúp các em xây dựng nhân cách, tư
+                        duy và kỹ năng xã hội ngay từ nhỏ. Tôi tin rằng mỗi đứa
+                        trẻ là một cá thể đặc biệt và xứng đáng nhận được sự quan
+                        tâm, yêu thương cùng những bài học bổ ích.
+                      </p>
+                    </div>
+                    <div class="hello-park">
+                      <h5>Education</h5>
+                      <div class="educate-year">
+                        <h6>2010 - 2013</h6>
+                        <p>Cao đẳng Sư phạm Mầm non, TP. Hồ Chí Minh.</p>
+                      </div>
+                      <div class="educate-year">
+                        <h6>2013 - 2015</h6>
+                        <p>
+                          Đại học Sư phạm TP. Hồ Chí Minh – Chuyên ngành Giáo dục
+                          Mầm non.
+                        </p>
+                      </div>
+                      <div class="educate-year">
+                        <h6>2016 - 2018</h6>
+                        <p class="mb-0">
+                          Thạc sĩ Giáo dục Mầm non tại Đại học Quốc tế.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <footer>
+      <p>Copyright © 2022 Dreamguys.</p>
+    </footer>
+  </div>
+  

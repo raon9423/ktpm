@@ -1,0 +1,198 @@
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col">
+          <h3 class="page-title">Add Teachers</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a routerLink="/teachers">Teachers</a>
+            </li>
+            <li class="breadcrumb-item active">Add Teachers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="teacherForm" (ngSubmit)="submitForm()">
+              <div class="row">
+                <div class="col-12">
+                  <h5 class="form-title"><span>Basic Details</span></h5>
+                </div>
+
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Name <span class="login-danger">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Name"
+                      formControlName="full_name"
+                    />
+                    <small
+                      *ngIf="
+                        teacherForm?.get('full_name')?.invalid &&
+                        teacherForm?.get('full_name')?.touched
+                      "
+                      class="text-danger"
+                    >
+                      Tên không được để trống!
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Mobile <span class="login-danger">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Phone"
+                      formControlName="phone_number"
+                    />
+                    <small
+                      *ngIf="
+                        teacherForm?.get('phone_number')?.invalid &&
+                        teacherForm?.get('phone_number')?.touched
+                      "
+                      class="text-danger"
+                    >
+                      Số điện thoại không hợp lệ!
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <h5 class="form-title"><span>Login Details</span></h5>
+                </div>
+
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Username <span class="login-danger">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Username"
+                      formControlName="username"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Email ID <span class="login-danger">*</span></label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Enter Mail Id"
+                      formControlName="email"
+                    />
+                    <small
+                      *ngIf="
+                        teacherForm?.get('email')?.invalid &&
+                        teacherForm?.get('email')?.touched
+                      "
+                      class="text-danger"
+                    >
+                      Email không hợp lệ!
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Password <span class="login-danger">*</span></label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Enter Password"
+                      formControlName="password"
+                    />
+                    <small
+                      *ngIf="
+                        teacherForm?.get('password')?.invalid &&
+                        teacherForm?.get('password')?.touched
+                      "
+                      class="text-danger"
+                    >
+                      Mật khẩu ít nhất 6 ký tự!
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label
+                      >Repeat Password
+                      <span class="login-danger">*</span></label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Repeat Password"
+                      formControlName="confirmPassword"
+                    />
+                    <small
+                      *ngIf="
+                        teacherForm?.get('confirmPassword')?.invalid &&
+                        teacherForm?.get('confirmPassword')?.touched
+                      "
+                      class="text-danger"
+                    >
+                      Mật khẩu không khớp!
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <h5 class="form-title"><span>Address</span></h5>
+                </div>
+                <div class="col-12">
+                  <div class="form-group local-forms">
+                    <label>Address <span class="login-danger">*</span></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter address"
+                      formControlName="address"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="student-submit">
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      [disabled]="teacherForm.invalid"
+                    >
+                      Submit
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary ml-2"
+                      (click)="resetForm()"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </div>
+
+                <div *ngIf="submitSuccess" class="alert alert-success mt-3">
+                  Thêm giáo viên thành công!
+                </div>
+                <div *ngIf="submitError" class="alert alert-danger mt-3">
+                  Có lỗi xảy ra, vui lòng thử lại!
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

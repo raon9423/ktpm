@@ -1,0 +1,109 @@
+html -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col">
+          <h3 class="page-title">Thêm môn học</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a routerLink="/subjects">Môn học</a>
+            </li>
+            <li class="breadcrumb-item active">Thêm môn học</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error message display -->
+    <div *ngIf="error" class="alert alert-danger">
+      {{ error }}
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-12">
+                  <h5 class="form-title">
+                    <span>Thông tin môn học</span>
+                  </h5>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Tên môn học <span class="login-danger">*</span></label>
+                    <input type="text" class="form-control" formControlName="subject" />
+                    <div *ngIf="subjectForm.get('subject')?.invalid && subjectForm.get('subject')?.touched" class="text-danger">
+                      <small *ngIf="subjectForm.get('subject')?.errors?.['required']">Tên môn học không được để trống</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Mã lớp <span class="login-danger">*</span></label>
+                    <input type="text" class="form-control" formControlName="class_id" />
+                    <div *ngIf="subjectForm.get('class_id')?.invalid && subjectForm.get('class_id')?.touched" class="text-danger">
+                      <small *ngIf="subjectForm.get('class_id')?.errors?.['required']">Mã lớp không được để trống</small>
+                      <small *ngIf="subjectForm.get('class_id')?.errors?.['pattern']">Mã lớp phải là số</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Mã giáo viên <span class="login-danger">*</span></label>
+                    <input type="text" class="form-control" formControlName="teacher_id" />
+                    <div *ngIf="subjectForm.get('teacher_id')?.invalid && subjectForm.get('teacher_id')?.touched" class="text-danger">
+                      <small *ngIf="subjectForm.get('teacher_id')?.errors?.['required']">Mã giáo viên không được để trống</small>
+                      <small *ngIf="subjectForm.get('teacher_id')?.errors?.['pattern']">Mã giáo viên phải là số</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Ngày học <span class="login-danger">*</span></label>
+                    <select class="form-select" formControlName="day_of_week">
+                      <option value="">Chọn ngày học</option>
+                      <option *ngFor="let day of daysOfWeek" [value]="day">{{ day }}</option>
+                    </select>
+                    <div *ngIf="subjectForm.get('day_of_week')?.invalid && subjectForm.get('day_of_week')?.touched" class="text-danger">
+                      <small *ngIf="subjectForm.get('day_of_week')?.errors?.['required']">Vui lòng chọn ngày học</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Giờ bắt đầu <span class="login-danger">*</span></label>
+                    <input type="time" class="form-control" formControlName="start_time" />
+                    <div *ngIf="subjectForm.get('start_time')?.invalid && subjectForm.get('start_time')?.touched" class="text-danger">
+                      <small *ngIf="subjectForm.get('start_time')?.errors?.['required']">Giờ bắt đầu không được để trống</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="form-group local-forms">
+                    <label>Giờ kết thúc <span class="login-danger">*</span></label>
+                    <input type="time" class="form-control" formControlName="end_time" />
+                    <div *ngIf="subjectForm.get('end_time')?.invalid && subjectForm.get('end_time')?.touched" class="text-danger">
+                      <small *ngIf="subjectForm.get('end_time')?.errors?.['required']">Giờ kết thúc không được để trống</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="student-submit">
+                    <button type="submit" class="btn btn-primary" [disabled]="isSubmitting">
+                      <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                      Lưu
+                    </button>
+                    <a routerLink="/subjects" class="btn btn-secondary ms-2">Hủy</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

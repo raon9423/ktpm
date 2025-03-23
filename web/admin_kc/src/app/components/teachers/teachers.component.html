@@ -1,0 +1,185 @@
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col">
+          <h3 class="page-title">Giáo viên</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Teachers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="student-group-form">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <!-- <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search by ID ..."
+              [(ngModel)]="searchId"
+              (keyup.enter)="searchTeacherById()"
+            />
+          </div> -->
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search by Name ..."
+              [(ngModel)]="searchName"
+              (keyup.enter)="searchTeachers()"
+            />
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search by Phone ..."
+              [(ngModel)]="searchPhone"
+              (keyup.enter)="searchTeachers()"
+            />
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="search-student-btn">
+            <button type="button" class="btn btn-primary" (click)="searchTeachers()">
+              Tìm kiếm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phần còn lại của template giữ nguyên -->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card card-table">
+          <div class="card-body">
+            <div class="page-header">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="page-title">Danh sách giảng viên</h3>
+                </div>
+                <div class="col-auto text-end float-end ms-auto download-grp">
+                  <a href="teachers.html" class="btn btn-outline-gray me-2 active">
+                    <i class="feather-list"></i>
+                  </a>
+                  <a href="teachers-grid.html" class="btn btn-outline-gray me-2">
+                    <i class="feather-grid"></i>
+                  </a>
+                  <a (click)="downloadCSV()" class="btn btn-outline-primary me-2">
+                    <i class="fas fa-download"></i> Tải danh sách
+                  </a>
+                  <a href="add-teacher" class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table
+                class="table border-0 star-student table-hover table-center mb-0 datatable table-striped"
+              >
+                <thead class="student-thread">
+                  <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Avatar</th>
+                    <th>Full name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let teacher of filteredTeachers">
+                    <td>{{ teacher.id }}</td>
+                    <td>{{ teacher.username }}</td>
+                    <td>{{ teacher.email }}</td>
+                    <td>
+                      <img
+                        [src]="teacher.avt_link || 'assets/img/default-avatar.jpg'"
+                        alt="Avatar"
+                        width="50"
+                      />
+                    </td>
+                    <td>{{ teacher.full_name }}</td>
+                    <td>{{ teacher.phone_number }}</td>
+                    <td>{{ teacher.address }}</td>
+                    <td class="text-end">
+                      <div class="actions">
+                        <a
+                          [routerLink]="['/teacher-detail', teacher.id]"
+                          class="btn btn-sm bg-success-light me-2"
+                        >
+                          <i class="feather-eye"></i>
+                        </a>
+                        <a
+                          [routerLink]="['/edit-teacher', teacher.id]"
+                          class="btn btn-sm bg-danger-light"
+                        >
+                          <i class="feather-edit"></i>
+                        </a>
+                        <a
+                          (click)="openDeleteModal(teacher.id)"
+                          class="btn btn-sm bg-danger-light"
+                        >
+                          <i class="feather-trash-2"></i>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal xác nhận xóa -->
+  <div
+    class="modal"
+    [class.show]="showDeleteModal"
+    tabindex="-1"
+    style="display: block;"
+    *ngIf="showDeleteModal"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Xác nhận xóa</h5>
+          <button type="button" class="btn-close" (click)="closeDeleteModal()"></button>
+        </div>
+        <div class="modal-body">
+          <p>Bạn có chắc muốn xóa giáo viên này không?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeDeleteModal()">
+            Hủy
+          </button>
+          <button type="button" class="btn btn-danger" (click)="confirmDelete()">
+            Xóa
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thanh thông báo success -->
+  <div class="notification" [class.show]="showSuccessNotification">
+    <div class="alert alert-success">{{ notificationMessage }}</div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
