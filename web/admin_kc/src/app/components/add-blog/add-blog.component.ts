@@ -8,7 +8,7 @@ import { AssetsLoaderService } from '../../services/assets-loader';
 @Component({
   selector: 'app-add-blog',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './add-blog.component.html',
   styleUrl: './add-blog.component.css'
 })
